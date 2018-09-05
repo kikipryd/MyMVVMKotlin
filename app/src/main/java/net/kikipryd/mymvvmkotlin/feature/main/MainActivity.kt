@@ -3,25 +3,23 @@ package net.kikipryd.mymvvmkotlin.feature.main
 import android.arch.lifecycle.ViewModelProvider
 import android.view.View
 import android.view.View.OnClickListener
-import net.kikipryd.mymvvmkotlin.R
 import net.kikipryd.mymvvmkotlin.dagger.component.ActivityComponent
 import net.kikipryd.mymvvmkotlin.feature.BaseActivity
-import net.kikipryd.mymvvmkotlin.viewmodel.main.MainViewModel
+import org.jetbrains.anko.setContentView
+
 
 class MainActivity : BaseActivity(), MainViewModel.Callback, OnClickListener {
 
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var contentView: MainView
 
-    override val contentView: Int
-        get() = R.layout.activity_main
+    override fun initAnkoView() {
+        contentView = MainView()
+        contentView.setContentView(this)
+    }
 
     override fun injectActivityComponent(activityComponent: ActivityComponent) {
         activityComponent.inject(this)
-    }
-
-    override fun onDestroy() {
-        mainViewModel.detachView()
-        super.onDestroy()
     }
 
     override fun initViewModel(viewModelProvider: ViewModelProvider) {
@@ -29,21 +27,22 @@ class MainActivity : BaseActivity(), MainViewModel.Callback, OnClickListener {
         mainViewModel.attchView(this)
     }
 
-    override fun initData() {
-        mainViewModel.getQuestions()
+    override fun onDestroy() {
+        mainViewModel.detachView()
+        super.onDestroy()
     }
 
-    override fun initComponent() {
+    override fun initData() {
+        mainViewModel.getQuestions()
     }
 
     override fun attachData() {
     }
 
+    override fun attachListener() {
+    }
+
     override fun onClick(view: View) {
-        when (view.id) {
-            else -> {
-            }
-        }
     }
 
     override fun onLoading() {

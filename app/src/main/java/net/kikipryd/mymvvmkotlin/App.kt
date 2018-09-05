@@ -23,7 +23,7 @@ class App : Application() {
         context = this
         networkModule = NetworkModule()
         activityComponent = DaggerActivityComponent.builder()
-                .networkModule(networkModule)
+//                .networkModule(networkModule)
                 .build()
         viewModelComponent = DaggerViewModelComponent.builder()
                 .networkModule(networkModule)

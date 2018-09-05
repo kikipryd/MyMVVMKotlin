@@ -1,4 +1,4 @@
-package net.kikipryd.mymvvmkotlin.viewmodel
+package net.kikipryd.mymvvmkotlin.feature
 
 import android.arch.lifecycle.ViewModel
 

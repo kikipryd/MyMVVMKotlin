@@ -1,10 +1,10 @@
-package net.kikipryd.mymvvmkotlin.viewmodel.main
+package net.kikipryd.mymvvmkotlin.feature.main
 
 import net.kikipryd.mymvvmkotlin.api.ApiCallback
 import net.kikipryd.mymvvmkotlin.api.ApiManager
 import net.kikipryd.mymvvmkotlin.dagger.component.ViewModelComponent
 import net.kikipryd.mymvvmkotlin.model.MainModel
-import net.kikipryd.mymvvmkotlin.viewmodel.BaseViewModel
+import net.kikipryd.mymvvmkotlin.feature.BaseViewModel
 import javax.inject.Inject
 
 class MainViewModel : BaseViewModel<MainViewModel.Callback>() {
